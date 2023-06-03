@@ -5,12 +5,13 @@ func TestWallet(t *testing.T) {
 
 	wallet := Wallet{}
 
-	wallet.Deposit(10.0)
+	wallet.Deposit(Bitcoin(10))
 
 	got := wallet.Balance()
-	want := 10.0
+
+	want := Bitcoin(10)
 
 	if got != want {
-		t.Errorf("got %.2f want %.2f", got, want)
+		t.Errorf("got %d want %d", got, want)
 	}
 }
