@@ -1,6 +1,7 @@
 package intefaces
 
 import "math"
+
 type Rectangle struct {
 	Width  float64
 	Height float64
@@ -9,13 +10,13 @@ type Circle struct {
 	Radius  float64
 }
 
-func Perimeter(rectangle Rectangle) float64 {
-	return 2 * (rectangle.Width + rectangle.Height)
+func (r Rectangle)Perimeter() float64 {
+	return 2 * (r.Width + r.Height)
 }
 
-func RectanleArea(rectangle Rectangle) float64 {
-	return rectangle.Width * rectangle.Height
+func (r Rectangle) Area() float64 {
+	return r.Width * r.Height
 }
-func CircleArea(circle Circle) float64 {
-	return math.Pow(circle.Radius,2) * math.Pi 
+func (c Circle) Area() float64 {
+	return math.Pow(c.Radius,2) * math.Pi 
 }
