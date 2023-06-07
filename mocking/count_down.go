@@ -21,10 +21,14 @@ func (d *DefaultSleeper) Sleep() {
 	time.Sleep(1 * time.Second)
 }
 
-func Countdown(out io.Writer,s Sleeper) {
+
+func Countdown(out io.Writer, sleeper Sleeper) {
+	for i := countdownStart; i > 0; i-- {
+		sleeper.Sleep()
+	}
+
 	for i := countdownStart; i > 0; i-- {
 		fmt.Fprintln(out, i)
-		s.Sleep()
 	}
 
 	fmt.Fprint(out, finalWord)
